@@ -1,4 +1,4 @@
-import { RejectedFn, ResolvedFn } from '../types'
+import { ResolvedFn, RejectedFn } from '../types'
 
 interface Interceptor<T> {
   resolved: ResolvedFn<T>
@@ -12,10 +12,10 @@ export default class InterceptorManager<T> {
     this.interceptors = []
   }
 
-  use(resolved:ResolvedFn<T>, rejected?: RejectedFn): number {
+  use(resolved: ResolvedFn<T>, rejected?: RejectedFn): number {
     this.interceptors.push({
-      resolved: resolved,
-      rejected: rejected
+      resolved,
+      rejected
     })
     return this.interceptors.length - 1
   }

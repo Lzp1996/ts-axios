@@ -54,6 +54,7 @@ router.post('/base/post', function(req, res) {
 registerErrorRouter()
 registerExtendRouter()
 registerInterceptorRouter()
+registerConfigRouter ()
 app.use(router)
 
 
@@ -77,7 +78,11 @@ function registerErrorRouter () {
     }, 3000)
   })
 }
-
+function registerConfigRouter () {
+  router.post('/config/post', function(req, res) {
+    res.json(req.body)
+  })
+}
 
 function registerExtendRouter () {
   router.get('/extend/get', function(req, res) {
@@ -129,7 +134,7 @@ function registerInterceptorRouter() {
 }
 
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8082
 module.exports = app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
 })
