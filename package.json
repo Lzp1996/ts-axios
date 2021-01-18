@@ -126,5 +126,8 @@
     "body-parser": "^1.18.3",
     "@types/qs": "^6.5.3",
     "qs": "^6.7.0"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5"
   }
 }
